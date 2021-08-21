@@ -1,8 +1,193 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Rotator.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game.gd" type="Script" id=2]
+[ext_resource path="res://Audio.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/bgs/blue.png" type="Texture" id=4]
+[ext_resource path="res://Conductor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/particles/particleSmallStar.png" type="Texture" id=6]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+const float SAMPLES = 71.0;
+const float PI2 = 6.283185307179586476925286766559;
+
+uniform vec2 blur_scale = vec2(1, 0);
+
+float gaussian(float x) {
+	float x_squared = x*x;
+	float width = 1.0 / sqrt(PI2 * SAMPLES);
+
+	return width * exp((x_squared / (2.0 * SAMPLES)) * -1.0);
+}
+
+void fragment() {
+	vec2 scale = TEXTURE_PIXEL_SIZE * blur_scale;
+	
+	float weight = 0.0;
+	float total_weight = 0.0;
+	vec4 color = vec4(0.0);
+	
+	for(int i=-int(SAMPLES)/2; i < int(SAMPLES)/2; ++i) {
+		weight = gaussian(float(i));
+		color += texture(TEXTURE, UV + scale * vec2(float(i))) * weight;
+		total_weight += weight;
+	}
+	
+	COLOR = color / total_weight;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/blur_scale = Vector2( 0, 0 )
 
 [node name="Game" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Conductor" parent="." instance=ExtResource( 5 )]
+
+[node name="BG" type="Node2D" parent="."]
+position = Vector2( 300, 300 )
+
+[node name="TextureRect" type="TextureRect" parent="BG"]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -450.0
+margin_top = -450.0
+margin_right = 450.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 900, 900 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG2" type="Node2D" parent="."]
+position = Vector2( 300, 300 )
+
+[node name="particleSmallStar" type="Sprite" parent="BG2"]
+position = Vector2( -364.891, 195.653 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar2" type="Sprite" parent="BG2"]
+position = Vector2( -205.376, -162.076 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar3" type="Sprite" parent="BG2"]
+position = Vector2( 146.689, 398.586 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar4" type="Sprite" parent="BG2"]
+position = Vector2( 246.74, 134.301 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar5" type="Sprite" parent="BG2"]
+position = Vector2( -47.749, 313.637 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar6" type="Sprite" parent="BG2"]
+position = Vector2( 146.689, -129.984 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar7" type="Sprite" parent="BG2"]
+position = Vector2( 241.076, -299.881 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar8" type="Sprite" parent="BG2"]
+position = Vector2( -105.325, -326.31 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar9" type="Sprite" parent="BG2"]
+position = Vector2( -125.147, 399.53 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar10" type="Sprite" parent="BG2"]
+position = Vector2( 331.688, 36.138 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar11" type="Sprite" parent="BG2"]
+position = Vector2( -267.672, 277.77 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar12" type="Sprite" parent="BG2"]
+position = Vector2( -108.157, -79.9586 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar13" type="Sprite" parent="BG2"]
+position = Vector2( 243.908, 480.703 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar14" type="Sprite" parent="BG2"]
+position = Vector2( 343.959, 216.418 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar15" type="Sprite" parent="BG2"]
+position = Vector2( 49.4701, 395.754 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar16" type="Sprite" parent="BG2"]
+position = Vector2( 243.908, -47.8669 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar17" type="Sprite" parent="BG2"]
+position = Vector2( 338.296, -217.764 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar18" type="Sprite" parent="BG2"]
+position = Vector2( -8.10632, -244.193 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar19" type="Sprite" parent="BG2"]
+position = Vector2( -27.9276, 481.647 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar20" type="Sprite" parent="BG2"]
+position = Vector2( 428.907, 118.255 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar21" type="Sprite" parent="BG2"]
+position = Vector2( -516.216, -61.1541 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar22" type="Sprite" parent="BG2"]
+position = Vector2( -356.701, -418.882 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar23" type="Sprite" parent="BG2"]
+position = Vector2( -4.63623, 141.779 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar24" type="Sprite" parent="BG2"]
+position = Vector2( 95.4146, -122.506 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar25" type="Sprite" parent="BG2"]
+position = Vector2( -199.074, 56.8302 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar26" type="Sprite" parent="BG2"]
+position = Vector2( -4.63623, -386.791 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar27" type="Sprite" parent="BG2"]
+position = Vector2( 89.7512, -556.688 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar28" type="Sprite" parent="BG2"]
+position = Vector2( -256.651, -583.117 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar29" type="Sprite" parent="BG2"]
+position = Vector2( -276.472, 142.723 )
+texture = ExtResource( 6 )
+
+[node name="particleSmallStar30" type="Sprite" parent="BG2"]
+position = Vector2( 180.363, -220.669 )
+texture = ExtResource( 6 )
 
 [node name="Rotator" parent="." instance=ExtResource( 1 )]
 
@@ -39,3 +224,10 @@ margin_left = 51.0
 margin_right = 99.0
 margin_bottom = 14.0
 text = "696969"
+
+[node name="AudioPlayer" parent="." instance=ExtResource( 3 )]
+position = Vector2( 295.779, 280.634 )
+
+[connection signal="game_measure" from="." to="Rotator" method="_on_Game_game_measure"]
+[connection signal="beat" from="Conductor" to="." method="_on_Conductor_beat"]
+[connection signal="measure" from="Conductor" to="." method="_on_Conductor_measure"]

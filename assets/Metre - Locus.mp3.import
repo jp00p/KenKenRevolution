@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Metre - Locus.mp3-2ed72ba1703c1aa84eaf20de54f355f6.mp3str"
+
+[deps]
+
+source_file="res://assets/Metre - Locus.mp3"
+dest_files=[ "res://.import/Metre - Locus.mp3-2ed72ba1703c1aa84eaf20de54f355f6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
