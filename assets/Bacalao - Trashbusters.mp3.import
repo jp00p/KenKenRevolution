@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Bacalao - Trashbusters.mp3-f5891ab0f3e2aec502afda7a8760a17f.mp3str"
+
+[deps]
+
+source_file="res://assets/Bacalao - Trashbusters.mp3"
+dest_files=[ "res://.import/Bacalao - Trashbusters.mp3-f5891ab0f3e2aec502afda7a8760a17f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

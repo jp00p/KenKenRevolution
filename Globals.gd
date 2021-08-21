@@ -6,5 +6,5 @@ signal beat(pos)
 signal measure(pos)
 
 func _ready():
-	for i in range(20):
+	for _i in range(20):
 		music_notes.append(0)

@@ -16,9 +16,13 @@ var rotation_speed = -1
 var time_delay
 
 onready var spectrum := AudioServer.get_bus_effect_instance(0, 0)
+var textureimage := Image.new()
+var texture := ImageTexture.new()
 
 func _ready():
-		
+	
+	textureimage.load("res://assets/particles/particleCartoonStar.png")
+	texture.create_from_image(textureimage)
 	
 	for i in range(definition):
 		histogram.append(0) # saving values in this array for visualization later
@@ -73,6 +77,8 @@ func _draw():
 		var normal = Vector2(0, -1).rotated(angle)
 		var start_pos = normal * radius
 		var end_pos = normal * (radius + histogram[i] * length)
-		draw_line(start_pos, end_pos, Color.dodgerblue, 4.0, true)
+		draw_line(start_pos, end_pos, Color.white, 0.5, true)
+		draw_texture(texture, Vector2(end_pos.x-5, end_pos.y-5))
+		#draw_texture_rect(texture, Rect2(start_pos, end_pos), true)
 		angle += angle_interval
 	

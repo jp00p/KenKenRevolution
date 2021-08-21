@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/click_100bpm_4-4time_301beats_stereo_GYKI7J.mp3-ba9a06f6add9ab59619496e39edd16b6.mp3str"
+
+[deps]
+
+source_file="res://assets/click_100bpm_4-4time_301beats_stereo_GYKI7J.mp3"
+dest_files=[ "res://.import/click_100bpm_4-4time_301beats_stereo_GYKI7J.mp3-ba9a06f6add9ab59619496e39edd16b6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

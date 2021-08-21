@@ -6,12 +6,13 @@
 [ext_resource path="res://addons/Trail/trail_2d.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=8]
-radius = 55.0
+radius = 35.0
 
 [sub_resource type="CircleShape2D" id=9]
-radius = 30.0
+radius = 22.0
 
 [sub_resource type="CircleShape2D" id=10]
+radius = 11.5
 
 [sub_resource type="Gradient" id=5]
 offsets = PoolRealArray( 0.508108, 0.994595 )
@@ -21,13 +22,20 @@ colors = PoolColorArray( 0.647666, 0, 0.742676, 1, 1, 1, 1, 0 )
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 1.4, 0.0, 0, 0 ]
 
 [sub_resource type="CircleShape2D" id=11]
-radius = 55.0
+radius = 36.0
 
 [node name="Rotator" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Pivot" type="Sprite" parent="."]
 position = Vector2( 300, 300 )
+
+[node name="Label" type="Label" parent="Pivot"]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Node2D" type="Node2D" parent="Pivot"]
 
@@ -108,13 +116,6 @@ autostart = true
 [node name="BeatTimer" type="Timer" parent="."]
 wait_time = 0.05
 autostart = true
-
-[node name="Label" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [connection signal="area_entered" from="Pivot/Node2D/Indicator/Okay" to="." method="_on_Okay_area_entered"]
 [connection signal="area_exited" from="Pivot/Node2D/Indicator/Okay" to="." method="_on_Okay_area_exited"]
