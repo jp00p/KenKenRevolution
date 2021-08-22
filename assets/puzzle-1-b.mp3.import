@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/puzzle-1-b.mp3-e7e838cfd8e282b529a9e55378785998.mp3str"
+
+[deps]
+
+source_file="res://assets/puzzle-1-b.mp3"
+dest_files=[ "res://.import/puzzle-1-b.mp3-e7e838cfd8e282b529a9e55378785998.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

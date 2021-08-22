@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/theramin crazy.wav-35257e49402e1ec575bb53f0c4ff2484.sample"
+
+[deps]
+
+source_file="res://assets/theramin crazy.wav"
+dest_files=[ "res://.import/theramin crazy.wav-35257e49402e1ec575bb53f0c4ff2484.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

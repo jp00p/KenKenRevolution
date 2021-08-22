@@ -1,6 +1,6 @@
 extends AudioStreamPlayer
 
-export var bpm := 150
+export var bpm := 100
 export var measures := 4
 
 # Tracking the beat and song position
@@ -10,6 +10,8 @@ var sec_per_beat = 60.0 / bpm
 var last_reported_beat = 0
 var beats_before_start = 0
 var measure = 1
+var song_length
+var circ = 1413
 
 # Determining how close to the beat an event is
 var closest = 0
@@ -18,10 +20,11 @@ var time_off_beat = 0.0
 signal beat(position)
 signal measure(position)
 
-
 func _ready():
 	sec_per_beat = 60.0 / bpm
 	Globals.bpms = sec_per_beat
+	#song_length = self.stream.get_length() / sec_per_beat
+	#Globals.song_length = song_length
 
 func _process(_delta):
 	if playing:

@@ -71,14 +71,23 @@ func _draw():
 	var angle = PI
 	var angle_interval = 2 * PI / definition
 	var radius = 120
-	var length = 66
+	var length = 120
 	
 	for i in range(definition):
+		var color = Color.white
 		var normal = Vector2(0, -1).rotated(angle)
 		var start_pos = normal * radius
 		var end_pos = normal * (radius + histogram[i] * length)
-		draw_line(start_pos, end_pos, Color.white, 0.5, true)
-		draw_texture(texture, Vector2(end_pos.x-5, end_pos.y-5))
+		if histogram[i] > 0.1:
+			color = Globals.lavender
+		if histogram[i] > 0.5:
+			color = Globals.pink
+		if histogram[i] > 0.7:
+			color = Globals.green
+		if histogram[i] > 0.9:
+			color = Globals.yellow
+		draw_line(start_pos, end_pos, color, 0.5, true)
+		draw_texture(texture, Vector2(end_pos.x-5, end_pos.y-5), color)
 		#draw_texture_rect(texture, Rect2(start_pos, end_pos), true)
 		angle += angle_interval
 	

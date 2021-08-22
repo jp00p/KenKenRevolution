@@ -9,20 +9,25 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node2D",
-"class": "Key",
+"base": "Area2D",
+"class": "Note",
 "language": "GDScript",
-"path": "res://Key.gd"
+"path": "res://Note.gd"
+}, {
+"base": "Area2D",
+"class": "Rest",
+"language": "GDScript",
+"path": "res://Rest.gd"
 } ]
 _global_script_class_icons={
-"Key": ""
+"Note": "",
+"Rest": ""
 }
 
 [application]
 
 config/name="KenKenRevolution"
-run/main_scene="res://Game.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://Splash.tscn"
 
 [autoload]
 
@@ -85,5 +90,5 @@ quality/driver/driver_name="GLES2"
 2d/snapping/use_gpu_pixel_snap=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
-environment/default_clear_color=Color( 0, 0, 0, 1 )
+environment/default_clear_color=Color( 0.101961, 0.0784314, 0.137255, 1 )
 environment/default_environment="res://default_env.tres"
